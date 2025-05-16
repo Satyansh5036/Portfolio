@@ -1,0 +1,239 @@
+/* === Font Imports (add this to public/index.html) ===
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+*/
+
+/* === Theme Variables === */
+:root {
+  /* Light Theme */
+  --background: #f9f9f9;
+  --primary-accent: #bf00ff;
+  --secondary-accent: #d24cff;
+  --text: #343434;
+  --text-secondary: #6e6e6e;
+  --card-bg: #f0f0f0;
+  --card-border: #e0e0e0;
+  --shadow: 0 4px 16px rgba(0,0,0,0.05);
+}
+
+[data-theme='dark'] {
+  --background: #121212;
+  --primary-accent: #bf00ff;
+  --secondary-accent: #d24cff;
+  --text: #f0f0f0;
+  --text-secondary: #b0b0b0;
+  --card-bg: #222222;
+  --card-border: #343434;
+  --shadow: 0 4px 24px rgba(191,0,255,0.10);
+}
+
+/* === Global Styles === */
+body {
+  background: var(--background);
+  color: var(--text);
+  font-family: 'Playfair Display', serif;
+  margin: 0;
+  transition: background 0.3s, color 0.3s;
+}
+
+h1, h2, h3, h4, h5, h6, .heading {
+  font-family: 'Montserrat', 'Proxima Nova', Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  color: var(--text);
+  margin-top: 0;
+  transition: color 0.3s;
+}
+
+p, li, span, label, input, textarea, button, .body-text {
+  font-family: 'Playfair Display', serif;
+  color: var(--text);
+  font-weight: 400;
+  transition: color 0.3s;
+}
+
+/* === Navigation & Sidebar === */
+.sidebar {
+  background: var(--card-bg);
+  border-right: 1px solid var(--card-border);
+  color: var(--text);
+  padding: 24px 0;
+  position: fixed;
+  width: 240px;
+  height: 100vh;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  transition: background 0.3s, color 0.3s;
+}
+
+.sidebar-logo {
+  font-family: 'Montserrat', 'Proxima Nova', Arial, Helvetica, sans-serif;
+  color: var(--primary-accent);
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin-bottom: 40px;
+  padding-left: 24px;
+}
+
+.sidebar nav {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.sidebar nav a {
+  color: var(--text-secondary);
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  padding: 12px 24px;
+  border-radius: 8px 0 0 8px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.sidebar nav a.active,
+.sidebar nav a:hover {
+  background: var(--primary-accent);
+  color: #fff;
+}
+
+.navbar {
+  background: var(--card-bg);
+  border-bottom: 1px solid var(--card-border);
+  color: var(--primary-accent);
+  font-family: 'Montserrat', 'Proxima Nova', Arial, Helvetica, sans-serif;
+  font-size: 1.2rem;
+  font-weight: 500;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  padding: 0 36px;
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  transition: background 0.3s, color 0.3s;
+}
+
+/* === Main Content === */
+.main-content {
+  margin-left: 240px;
+  padding: 40px 32px;
+  min-height: 100vh;
+  background: var(--background);
+  transition: background 0.3s;
+}
+
+/* === Project Cards: Horizontal Layout === */
+.project-main-cards {
+  display: flex;
+  flex-direction: row;
+  gap: 32px;
+  margin-top: 32px;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.project-card {
+  background: var(--card-bg);
+  padding: 32px 24px;
+  border-radius: 16px;
+  flex: 1 1 250px;
+  min-width: 220px;
+  max-width: 350px;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--card-border);
+  text-align: center;
+  color: var(--text);
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s, border-color 0.2s;
+  font-family: 'Playfair Display', serif;
+  margin-bottom: 0;
+}
+
+.academic-projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 32px; /* Adjust gap as needed */
+  margin-top: 32px;
+}
+
+.project-card:hover {
+  background: var(--primary-accent);
+  color: #fff;
+  box-shadow: 0 4px 24px var(--secondary-accent), 0 0 8px var(--primary-accent);
+  border-color: var(--primary-accent);
+}
+
+/* === Cards, Panels, and Other Sections === */
+.card, .page, .case-card, .pdf-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  padding: 32px 24px;
+  color: var(--text);
+  transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+}
+
+.card:hover, .case-card:hover, .pdf-card:hover {
+  box-shadow: 0 6px 32px var(--primary-accent), 0 0 8px var(--secondary-accent);
+  border-color: var(--primary-accent);
+}
+
+/* === Buttons & Links === */
+a, .cta-btn {
+  color: var(--primary-accent);
+  text-decoration: none;
+  transition: color 0.3s, background 0.3s, box-shadow 0.3s;
+}
+
+a:hover, .cta-btn:hover {
+  color: #fff;
+  background: var(--secondary-accent);
+  box-shadow: 0 2px 12px var(--primary-accent), 0 0 8px var(--secondary-accent);
+  text-shadow: 0 0 4px var(--primary-accent);
+}
+
+.cta-btn {
+  background: var(--primary-accent);
+  color: #fff;
+  padding: 12px 28px;
+  border: none;
+  border-radius: 30px;
+  font-family: 'Montserrat', 'Proxima Nova', Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  margin: 10px 10px 0 0;
+  transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+}
+
+.cta-btn.secondary {
+  background: var(--secondary-accent);
+}
+
+/* === Profile Image === */
+.profile-img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid var(--primary-accent);
+  margin-bottom: 18px;
+  transition: border-color 0.3s;
+}
+
+/* === Responsive Layout === */
+@media (max-width: 900px) {
+  .main-content { margin-left: 0; }
+  .sidebar { position: static; width: 100vw; height: auto; flex-direction: row; }
+  .sidebar nav { flex-direction: row; }
+  .project-main-cards {
+    flex-direction: column;
+    gap: 24px;
+  }
+  .project-card {
+    max-width: 100%;
+    min-width: 0;
+  }
+}
