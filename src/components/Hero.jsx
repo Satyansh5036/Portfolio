@@ -7,7 +7,7 @@ const Hero = () => (
       <h1>Hi, I’m Satyansh</h1>
       <p>Crafted with Purpose. Driven by Passion</p>
       <p>Product Manager passionate about building user-centric digital experiences that drive business growth.</p>
-      <a href="#projects" className="btn-primary">See My Work</a>
+      <a href="#projects" className="see-work-btn">See My Work</a>
     </div>
     <div className="hero-image">
       <img src={profilePic} alt="Your Name" />

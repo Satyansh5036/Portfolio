@@ -216,6 +216,45 @@ p {
   max-width: 1200px;
 }
 
+.see-work-btn {
+  display: inline-flex;
+  align-items: center;
+  background-color: var(--primary-accent);
+  color: white;
+  font-weight: 700;
+  font-family: var(--font-sans);
+  padding: 0.75rem 1.75rem;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+  font-size: 1.125rem;
+  box-shadow: 0 6px 15px rgba(191, 0, 255, 0.4);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+  text-decoration: none; /* if it's a link */
+  user-select: none;
+}
+
+/* Hover effect */
+.see-work-btn:hover,
+.see-work-btn:focus {
+  background-color: var(--primary-accent-dark);
+  box-shadow: 0 8px 20px rgba(191, 0, 255, 0.7);
+  transform: translateY(-3px);
+  outline: none;
+}
+
+/* Optional icon inside button */
+.see-work-btn svg {
+  margin-left: 8px;
+  transition: transform 0.3s ease;
+}
+
+/* Icon animation on hover */
+.see-work-btn:hover svg,
+.see-work-btn:focus svg {
+  transform: translateX(5px);
+}
+
 /* Fixed circular profile image top-right */
 .hero-image img {
   position: fixed;
