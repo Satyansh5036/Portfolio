@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { FaHome, FaFileArchive, FaUser, FaProjectDiagram, FaFileAlt, FaEnvelope } from 'react-icons/fa';
-import profile from '../assets/Satyansh_Image.jpg';
+import profile from '../assets/Satyansh.jpg';
 
 const Sidebar = () => (
   <aside className="sidebar">
