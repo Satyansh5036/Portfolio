@@ -1,27 +1,48 @@
-import React from 'react';
+import React from "react";
 
 const caseStudies = [
-  { title: "Tata Sampann SnacQ\n", file: "\t/pdfs/Tata Sampann SnacQ.pdf" },
-  { title: "Rebel Foods\n\t", file: "/pdfs/Rebel Foods.pdf" },
-  { title: "Prod-A-Thon\n\t", file: "/pdfs/Prod-A-Thon.pdf" },
-  { title: "Spotify\n\t", file: "/pdfs/Spotify.pdf" },
-  { title: "Flipkart\n\t", file: "/pdfs/Flipkart.pdf" },
-  { title: "Pet Parenting\n\t", file: "/pdfs/Pet Parenting.pdf" },
-  // Add more as needed
+  {
+    id: 1,
+    title: "Flipkart Promise: Turning Post-Purchase Anxiety into Trust",
+    pdf: "/pdfs/Flipkart.pdf",
+  },
+ {
+    id: 2,
+    title: "Pet Parenting Market in India",
+    pdf: "/pdfs/Pet Parenting.pdf",
+  },
+ {
+    id: 3,
+    title: "SnacQ: Guilt-Free Indulgence",
+    pdf: "/pdfs/Tata Sampann SnacQ.pdf",
+  },
+  {
+    id: 4,
+    title: "Enhancing EatSure's Penetration in College",
+    pdf: "/pdfs/Rebel Foods.pdf",
+  },
+ {
+    id: 5,
+    title: "Improving User Adoption of Pluckk",
+    pdf: "/pdfs/Prod-A-Thon.pdf",
+  },
+ {
+    id: 5,
+    title: "Increasing Time Spent Listening on Spotify India",
+    pdf: "/pdfs/Spotify.pdf",
+  },
 ];
 
 const CaseStudiesList = () => (
-  <section className="page case-list">
-    <h2>Case Studies</h2>
-    <div className="academic-projects-grid">
-      {caseStudies.map((item, idx) => (
-        <div className="pdf-card" key={idx}>
-          <a href={item.file} target="_blank" rel="noopener noreferrer"><span>{item.title}</span></a>
-          
-        </div>
-      ))}
-    </div>
-  </section>
+  <ul className="project-list">
+    {caseStudies.map(({ id, title, pdf }) => (
+      <li key={id}>
+        <a href={pdf} target="_blank" rel="noopener noreferrer" className="btn-primary">
+          {title}
+        </a>
+      </li>
+    ))}
+  </ul>
 );
 
 export default CaseStudiesList;

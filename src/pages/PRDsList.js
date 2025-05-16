@@ -1,23 +1,28 @@
-import React from 'react';
+import React from "react";
 
 const prds = [
-  { title: "PRD 1", file: "/pdfs/prd1.pdf" },
-  { title: "PRD 2", file: "/pdfs/prd2.pdf" },
-  // Add more as needed
+  {
+    id: 1,
+    title: "PRD 1",
+    pdf: "/pdfs/prd1.pdf",
+  },
+  {
+    id: 2,
+    title: "PRD 2",
+    pdf: "/pdfs/prd2.pdf",
+  },
 ];
 
-const PRDsList = () => (
-  <section className="page prd-list">
-    <h2>Product Requirement Documents</h2>
-    <div className="pdf-grid">
-      {prds.map((item, idx) => (
-        <div className="pdf-card" key={idx}>
-          <span>{item.title}</span>
-          <a href={item.file} target="_blank" rel="noopener noreferrer">View PDF</a>
-        </div>
-      ))}
-    </div>
-  </section>
+const PRDs = () => (
+  <ul className="project-list">
+    {prds.map(({ id, title, pdf }) => (
+      <li key={id}>
+        <a href={pdf} target="_blank" rel="noopener noreferrer" className="btn-primary">
+          {title}
+        </a>
+      </li>
+    ))}
+  </ul>
 );
 
-export default PRDsList;
+export default PRDs;

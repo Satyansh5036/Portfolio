@@ -1,239 +1,450 @@
-/* === Font Imports (add this to public/index.html) ===
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
-*/
-
-/* === Theme Variables === */
+/* ===========================
+   CSS Variables for Themes
+=========================== */
 :root {
-  /* Light Theme */
-  --background: #f9f9f9;
+  /* Light theme colors */
+  --background: #fff;
   --primary-accent: #bf00ff;
-  --secondary-accent: #d24cff;
-  --text: #343434;
-  --text-secondary: #6e6e6e;
-  --card-bg: #f0f0f0;
-  --card-border: #e0e0e0;
-  --shadow: 0 4px 16px rgba(0,0,0,0.05);
+  --primary-accent-dark: #a000cc;
+  --text-primary: #222;
+  --text-secondary: #555;
+  --card-bg: #fafafa;
+  --card-shadow: rgba(191, 0, 255, 0.15);
+  --font-sans: 'Montserrat', sans-serif;
+  --font-serif: 'Playfair Display', serif;
 }
 
-[data-theme='dark'] {
+[data-theme="dark"] {
+  /* Dark theme colors */
   --background: #121212;
   --primary-accent: #bf00ff;
-  --secondary-accent: #d24cff;
-  --text: #f0f0f0;
-  --text-secondary: #b0b0b0;
-  --card-bg: #222222;
-  --card-border: #343434;
-  --shadow: 0 4px 24px rgba(191,0,255,0.10);
+  --primary-accent-dark: #d24cff;
+  --text-primary: #e0e0e0;
+  --text-secondary: #a0a0a0;
+  --card-bg: #1e1e1e;
+  --card-shadow: rgba(191, 0, 255, 0.4);
 }
 
-/* === Global Styles === */
+/* ===========================
+   Global Styles
+=========================== */
+* {
+  box-sizing: border-box;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
 body {
   background: var(--background);
-  color: var(--text);
-  font-family: 'Playfair Display', serif;
+  color: var(--text-primary);
+  font-family: var(--font-serif);
   margin: 0;
-  transition: background 0.3s, color 0.3s;
+  padding: 0;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-h1, h2, h3, h4, h5, h6, .heading {
-  font-family: 'Montserrat', 'Proxima Nova', Arial, Helvetica, sans-serif;
+h1, h2, h3 {
+  font-family: var(--font-sans);
   font-weight: 700;
-  color: var(--text);
+  margin-bottom: 0.5rem;
+}
+
+h1 {
+  font-size: 3rem;
+  color: var(--primary-accent);
+}
+
+h2 {
+  font-size: 2rem;
+  margin-top: 2rem;
+}
+
+p {
+  font-size: 1.125rem;
+  color: var(--text-secondary);
+  max-width: 700px;
   margin-top: 0;
-  transition: color 0.3s;
 }
 
-p, li, span, label, input, textarea, button, .body-text {
-  font-family: 'Playfair Display', serif;
-  color: var(--text);
-  font-weight: 400;
-  transition: color 0.3s;
+/* ===========================
+   Layout Containers
+=========================== */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
 }
 
-/* === Navigation & Sidebar === */
+.App {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* ===========================
+   Sidebar Styles
+=========================== */
 .sidebar {
   background: var(--card-bg);
-  border-right: 1px solid var(--card-border);
-  color: var(--text);
-  padding: 24px 0;
+  padding: 2rem 1rem;
+  width: 260px;
   position: fixed;
-  width: 240px;
   height: 100vh;
-  z-index: 10;
+  box-shadow: 2px 0 10px rgba(0,0,0,0.05);
+  font-family: var(--font-sans);
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  transition: background 0.3s, color 0.3s;
+  gap: 2.5rem;
+  z-index: 1001;
+  left: 0;
+  top: 0;
+  transition: left 0.3s ease;
+}
+
+.sidebar.open {
+  left: 0;
 }
 
 .sidebar-logo {
-  font-family: 'Montserrat', 'Proxima Nova', Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  font-size: 1.8rem;
   color: var(--primary-accent);
-  font-size: 1.4rem;
-  font-weight: bold;
-  margin-bottom: 40px;
-  padding-left: 24px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding-left: 8px;
+  cursor: pointer;
 }
 
 .sidebar nav {
   display: flex;
   flex-direction: column;
   width: 100%;
+  gap: 1.2rem;
 }
 
 .sidebar nav a {
-  color: var(--text-secondary);
-  font-family: 'Playfair Display', serif;
-  font-size: 1.1rem;
-  padding: 12px 24px;
-  border-radius: 8px 0 0 8px;
-  transition: background 0.2s, color 0.2s;
-}
-
-.sidebar nav a.active,
-.sidebar nav a:hover {
-  background: var(--primary-accent);
-  color: #fff;
-}
-
-.navbar {
-  background: var(--card-bg);
-  border-bottom: 1px solid var(--card-border);
-  color: var(--primary-accent);
-  font-family: 'Montserrat', 'Proxima Nova', Arial, Helvetica, sans-serif;
-  font-size: 1.2rem;
-  font-weight: 500;
-  height: 64px;
   display: flex;
   align-items: center;
-  padding: 0 36px;
-  position: sticky;
-  top: 0;
-  z-index: 5;
-  transition: background 0.3s, color 0.3s;
+  padding: 0.75rem 1rem;
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* === Main Content === */
-.main-content {
-  margin-left: 240px;
-  padding: 40px 32px;
-  min-height: 100vh;
-  background: var(--background);
-  transition: background 0.3s;
+.sidebar nav a:hover,
+.sidebar nav a.active {
+  background-color: var(--primary-accent);
+  color: white;
 }
 
-/* === Project Cards: Horizontal Layout === */
-.project-main-cards {
+.sidebar nav a svg {
+  margin-right: 12px;
+  color: var(--primary-accent);
+}
+
+/* Contact button outside nav */
+.contact-btn {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  font-weight: 600;
+  font-family: 'Montserrat', sans-serif;
+  cursor: pointer;
   display: flex;
-  flex-direction: row;
-  gap: 32px;
-  margin-top: 32px;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  width: 100%;
+  text-align: left;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.contact-btn:hover {
+  background-color: var(--primary-accent);
+  color: white;
+}
+
+.contact-btn svg {
+  margin-right: 14px;
+  color: var(--primary-accent);
+}
+
+/* Theme toggle button */
+.theme-toggle-btn {
+  margin-top: auto;
+  background: none;
+  border: none;
+  color: var(--primary-accent);
+  font-weight: 600;
+  font-family: var(--font-sans);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  border-radius: 30px;
+  transition: background-color 0.3s ease;
+}
+
+.theme-toggle-btn:hover {
+  background-color: var(--primary-accent);
+  color: white;
+}
+
+/* ===========================
+   Main Content Styles
+=========================== */
+.main-content {
+  margin-left: 260px;
+  margin-right: 140px; /* space for fixed image */
+  flex-grow: 1;
+  padding: 2rem;
+}
+
+/* ===========================
+   Hero Section
+=========================== */
+.hero {
+  padding: 4rem 1rem;
+  background: #f8f0fc;
+  border-radius: 12px;
+  margin-bottom: 3rem;
+  color: var(--text-primary);
+  max-width: 1200px;
+}
+
+/* Fixed circular profile image top-right */
+.hero-image img {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 10px 30px var(--card-shadow);
+  z-index: 1002;
+}
+
+[data-theme="dark"] .hero {
+  background: #2a1e3a;
+}
+
+/* ===========================
+   Project Cards Styles
+=========================== */
+.projects-main-cards {
+  display: flex;
+  gap: 2rem;
   flex-wrap: wrap;
-  justify-content: flex-start;
+  margin-top: 2rem;
 }
 
 .project-card {
   background: var(--card-bg);
-  padding: 32px 24px;
-  border-radius: 16px;
-  flex: 1 1 250px;
-  min-width: 220px;
-  max-width: 350px;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px var(--card-shadow);
+  padding: 1.5rem;
+  flex: 1 1 400px;
+  min-width: 280px;
+  display: flex;
+  flex-direction: column;
   cursor: pointer;
-  box-shadow: var(--shadow);
-  border: 1px solid var(--card-border);
-  text-align: center;
-  color: var(--text);
-  transition: background 0.2s, color 0.2s, box-shadow 0.2s, border-color 0.2s;
-  font-family: 'Playfair Display', serif;
-  margin-bottom: 0;
-}
-
-.academic-projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 32px; /* Adjust gap as needed */
-  margin-top: 32px;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
 .project-card:hover {
-  background: var(--primary-accent);
-  color: #fff;
-  box-shadow: 0 4px 24px var(--secondary-accent), 0 0 8px var(--primary-accent);
-  border-color: var(--primary-accent);
+  box-shadow: 0 12px 40px var(--primary-accent);
+  transform: translateY(-6px);
 }
 
-/* === Cards, Panels, and Other Sections === */
-.card, .page, .case-card, .pdf-card {
-  background: var(--card-bg);
-  border: 1px solid var(--card-border);
-  border-radius: 16px;
-  box-shadow: var(--shadow);
-  padding: 32px 24px;
-  color: var(--text);
-  transition: background 0.3s, color 0.3s, box-shadow 0.3s;
-}
-
-.card:hover, .case-card:hover, .pdf-card:hover {
-  box-shadow: 0 6px 32px var(--primary-accent), 0 0 8px var(--secondary-accent);
-  border-color: var(--primary-accent);
-}
-
-/* === Buttons & Links === */
-a, .cta-btn {
+.project-card h3 {
+  margin-top: 0;
   color: var(--primary-accent);
-  text-decoration: none;
-  transition: color 0.3s, background 0.3s, box-shadow 0.3s;
+  margin-bottom: 1rem;
 }
 
-a:hover, .cta-btn:hover {
-  color: #fff;
-  background: var(--secondary-accent);
-  box-shadow: 0 2px 12px var(--primary-accent), 0 0 8px var(--secondary-accent);
-  text-shadow: 0 0 4px var(--primary-accent);
+.project-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+  flex-grow: 1;
 }
 
-.cta-btn {
-  background: var(--primary-accent);
-  color: #fff;
-  padding: 12px 28px;
-  border: none;
+.project-list li {
+  margin-bottom: 0.75rem;
+}
+
+.project-list a.btn-primary {
+  padding: 0.5rem 1rem;
   border-radius: 30px;
-  font-family: 'Montserrat', 'Proxima Nova', Arial, Helvetica, sans-serif;
-  font-weight: 700;
-  font-size: 1rem;
-  box-shadow: var(--shadow);
+  background-color: var(--primary-accent);
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+}
+
+.project-list a.btn-primary:hover {
+  background-color: var(--primary-accent-dark);
+}
+
+/* Case Studies category buttons */
+.case-study-categories {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.category-btn {
+  background: #ddd;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 30px;
   cursor: pointer;
-  margin: 10px 10px 0 0;
-  transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
 }
 
-.cta-btn.secondary {
-  background: var(--secondary-accent);
+.category-btn.active,
+.category-btn:hover {
+  background: var(--primary-accent);
+  color: white;
 }
 
-/* === Profile Image === */
-.profile-img {
-  width: 120px;
-  height: 120px;
-  object-fit: cover;
-  border-radius: 50%;
-  border: 4px solid var(--primary-accent);
-  margin-bottom: 18px;
-  transition: border-color 0.3s;
+/* ===========================
+   Modal Styles
+=========================== */
+.modal-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 1000;
 }
 
-/* === Responsive Layout === */
+.modal-content {
+  position: fixed;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--card-bg);
+  padding: 2rem 3rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px var(--card-shadow);
+  z-index: 1001;
+  min-width: 280px;
+  max-width: 90vw;
+  text-align: center;
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 0.5rem; right: 1rem;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.contact-icons {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 1.5rem;
+}
+
+.contact-icons a {
+  font-size: 2.5rem;
+  color: var(--primary-accent);
+  transition: color 0.3s ease;
+}
+
+.contact-icons a:hover {
+  color: var(--primary-accent-dark);
+}
+
+/* ===========================
+   Hamburger Button & Overlay
+=========================== */
+.hamburger-btn {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  background: var(--primary-accent);
+  border: none;
+  color: white;
+  padding: 0.5rem;
+  border-radius: 6px;
+  z-index: 1100;
+  cursor: pointer;
+  display: none;
+}
+
+.overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 1000;
+  display: none;
+}
+
+/* Show overlay when sidebar is open */
+.overlay.show {
+  display: block;
+}
+
+/* ===========================
+   Responsive Styles
+=========================== */
 @media (max-width: 900px) {
-  .main-content { margin-left: 0; }
-  .sidebar { position: static; width: 100vw; height: auto; flex-direction: row; }
-  .sidebar nav { flex-direction: row; }
-  .project-main-cards {
-    flex-direction: column;
-    gap: 24px;
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: -260px; /* hidden off-canvas */
+    height: 100vh;
+    width: 260px;
+    background: var(--card-bg);
+    box-shadow: 2px 0 10px rgba(0,0,0,0.2);
+    transition: left 0.3s ease;
+    z-index: 1001;
   }
-  .project-card {
-    max-width: 100%;
-    min-width: 0;
+  .sidebar.open {
+    left: 0; /* visible */
+  }
+
+  .hamburger-btn {
+    display: block;
+  }
+
+  .overlay {
+    display: block;
+  }
+
+  .main-content {
+    margin-left: 0;
+    margin-right: 0;
+    padding: 1rem;
+  }
+
+  /* Move profile image to top center and smaller on mobile */
+  .hero-image img {
+    position: static;
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 2rem;
+    display: block;
+    border-radius: 50%;
+    box-shadow: 0 10px 30px var(--card-shadow);
+  }
+
+  /* Stack project cards vertically on mobile */
+  .projects-main-cards {
+    flex-direction: column;
   }
 }

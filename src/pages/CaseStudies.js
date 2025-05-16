@@ -1,26 +1,41 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState } from "react";
+import CaseStudiesList from "./CaseStudiesList";
+import ProductTeardown from "./ProductTeardownsList";
+import PRDs from "./PRDsList";
 
 const CaseStudies = () => {
-  const navigate = useNavigate();
+  const [selectedCategory, setSelectedCategory] = useState(null);
+
   return (
-    <section className="page case-studies">
-      <h2>Case Studies Section</h2>
-      <div className="case-studies-matrix">
-        <div className="case-card" onClick={() => navigate('/projects/casestudies/list')}>
-          <h3>Case Studies</h3>
-          <p>All my case study PDFs here.</p>
-        </div>
-        <div className="case-card" onClick={() => navigate('/projects/casestudies/teardowns')}>
-          <h3>Product Teardowns</h3>
-          <p>All my product teardown PDFs here.</p>
-        </div>
-        <div className="case-card" onClick={() => navigate('/projects/casestudies/prds')}>
-          <h3>Product Requirement Documents</h3>
-          <p>All my PRDs here.</p>
-        </div>
+    <div className="project-card case-studies-card">
+      <h3>Case Studies</h3>
+      <div className="case-study-categories">
+        <button
+          className={`category-btn ${selectedCategory === "Case Study" ? "active" : ""}`}
+          onClick={() => setSelectedCategory("Case Study")}
+        >
+          Case Study
+        </button>
+        <button
+          className={`category-btn ${selectedCategory === "Product Teardown" ? "active" : ""}`}
+          onClick={() => setSelectedCategory("Product Teardown")}
+        >
+          Product Teardown
+        </button>
+        <button
+          className={`category-btn ${selectedCategory === "PRD" ? "active" : ""}`}
+          onClick={() => setSelectedCategory("PRD")}
+        >
+          PRD
+        </button>
       </div>
-    </section>
+
+      <div className="case-study-projects">
+        {selectedCategory === "Case Study" && <CaseStudiesList />}
+        {selectedCategory === "Product Teardown" && <ProductTeardown />}
+        {selectedCategory === "PRD" && <PRDs />}
+      </div>
+    </div>
   );
 };
 

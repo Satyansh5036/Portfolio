@@ -1,26 +1,41 @@
-import React from 'react';
+import React from "react";
 
-// Replace with your actual PDF data
 const academicProjects = [
-  { title: "Managerial Economics\n", file: "/pdfs/ME.pdf" },
-  { title: "Operations Management\n", file: "/pdfs/Operations Management.pdf" },
-  { title: "Financial Management\n", file: "/pdfs/HFM.pdf" },
-  { title: "Information System for Healthcare Managers\n", file: "/pdfs/ISHM.pdf" },
-  // Add more as needed
+  {
+    id: 1,
+    title: "Economics",
+    pdf: "/pdfs/ME.pdf",
+  },
+  {
+    id: 2,
+    title: "Operations Managment",
+    pdf: "/pdfs/Operations Management.pdf",
+  },
+  {
+    id: 3,
+    title: "Financial Management",
+    pdf: "/pdfs/HFM.pdf",
+  },
+  {
+    id: 4,
+    title: "Information System",
+    pdf: "/pdfs/ISHM.pdf",
+  },
 ];
 
 const AcademicProjects = () => (
-  <section className="page academic-projects">
-    <h2>Academic Projects</h2>
-    <div className="academic-projects-grid">
-      {academicProjects.map((proj, idx) => (
-        <div className="pdf-card" key={idx}>
-          <span>{proj.title}</span>
-          <a href={proj.file} target="_blank" rel="noopener noreferrer">View PDF</a>
-        </div>
+  <div className="project-card academic-projects-card">
+    <h3>Academic Projects</h3>
+    <ul className="project-list">
+      {academicProjects.map(({ id, title, pdf }) => (
+        <li key={id}>
+          <a href={pdf} target="_blank" rel="noopener noreferrer" className="btn-primary">
+            {title}
+          </a>
+        </li>
       ))}
-    </div>
-  </section>
+    </ul>
+  </div>
 );
 
 export default AcademicProjects;
