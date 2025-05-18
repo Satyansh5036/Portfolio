@@ -21,6 +21,11 @@ const academicProjects = [
     title: "Information System",
     pdf: "/pdfs/ISHM.pdf",
   },
+  {
+    id: 5,
+    title: "Marketing Management",
+    pdf: "/pdfs/Surf Excel.pdf",
+  },
 ];
 
 const AcademicProjects = () => (
