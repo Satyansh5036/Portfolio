@@ -52,7 +52,7 @@ const Sidebar = ({ isOpen, closeSidebar, theme, toggleTheme }) => {
             />
             Projects
           </a>
-          <a href="https://drive.google.com/file/d/1nZuX32GZj3nMaEuc6vOm5anMy4-h23Yh/view?usp=sharing" target="_blank" onClick={closeSidebar}>
+          <a href="https://drive.google.com/file/d/1lRMrorbCoC9JVRgsDTUg4eR1NV-2XO83/view?usp=sharing" target="_blank" onClick={closeSidebar}>
             <TiDocumentText
               style={{ color: "#bf00ff", width: 24, height: 24, marginRight: 14 }}
             />
