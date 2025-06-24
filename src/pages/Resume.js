@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Resume = () => {
-  const resumeLink = "https://drive.google.com/file/d/1P2HrNvtZPdduL07yR34F58Xe56_wKqEI/view"; // <-- Replace with your actual Drive URL
+  const resumeLink = "https://drive.google.com/file/d/1P2HrNvtZPdduL07yR34F58Xe56_wKqEI/view?usp=sharing"; // <-- Replace with your actual Drive URL
 
   return (
     <section className="page resume">
