@@ -56,7 +56,6 @@ const Sidebar = ({ isOpen, closeSidebar, theme, toggleTheme }) => {
 
           <a href="https://drive.google.com/file/d/1b-FLy9_icJrh0mICZ2nvL9mz9Cfoh9U8/view?usp=sharing"  target="_blank" onClick={closeSidebar}>
  Resume
-=======
             <TiDocumentText
               style={{ color: "#bf00ff", width: 24, height: 24, marginRight: 14 }}
             />
