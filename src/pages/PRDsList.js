@@ -3,13 +3,18 @@ import React from "react";
 const prds = [
   {
     id: 1,
-    title: "PRD 1",
-    pdf: "/pdfs/prd1.pdf",
+    title: "Picklist App",
+    pdf: "/pdfs/Picklist_App__Product_Assignment_Satyansh.pdf",
   },
   {
     id: 2,
-    title: "PRD 2",
-    pdf: "/pdfs/prd2.pdf",
+    title: "BharatNXT",
+    pdf: "/pdfs/PRD_Satyansh.pdf",
+  },
+  {
+    id: 3,
+    title: "Pilgrim",
+    pdf: "/pdfs/Satyansh_Product Management Internship Assignment.pdf",
   },
 ];
 
