@@ -3,8 +3,8 @@ import React from "react";
 const teardowns = [
   {
     id: 1,
-    title: "Product Teardown 1",
-    pdf: "/pdfs/teardown1.pdf",
+    title: "CRED Product Teardown",
+    pdf: "https://evening-lunaria-d30.notion.site/CRED-Product-Teardown-Solution-Unlocking-Daily-Engagement-Beyond-Bill-Cycles-244d9e8e5a7a80cc9bdfdc857acbd484",
   },
 ];
 
