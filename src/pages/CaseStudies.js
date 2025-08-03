@@ -1,13 +1,7 @@
 import React, { useState } from "react";
 import CaseStudiesList from "./CaseStudiesList";
-/* import ProductTeardown from "./ProductTeardownsList";
- <button
-        //  className={`category-btn ${selectedCategory === "Product Teardown" ? "active" : ""}`}
-        //  onClick={() => setSelectedCategory("Product Teardown")}
-        >
-         Product Teardown
-        </button>*/
 import PRDs from "./PRDsList";
+import ProductTeardown from "./ProductTeardownsList";
 
 const CaseStudies = () => {
   const [selectedCategory, setSelectedCategory] = useState(null);
@@ -28,6 +22,13 @@ const CaseStudies = () => {
           onClick={() => setSelectedCategory("PRD")}
         >
           PRD
+        </button>
+
+            <button
+          className={`category-btn ${selectedCategory === "Product Teardown" ? "active" : ""}`}
+          onClick={() => setSelectedCategory("Product Teardown")}
+        >
+         Product Teardown
         </button>
       </div>
       
