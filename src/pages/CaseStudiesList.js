@@ -31,6 +31,11 @@ const caseStudies = [
     title: "Increasing Time Spent Listening on Spotify India",
     pdf: "/pdfs/Spotify.pdf",
   },
+  {
+    id: 6,
+    title: "Ambulance Aggregator Prototype",
+    pdf: "https://evening-lunaria-d30.notion.site/Ambulance-Aggregator-Prototype-Product-Growth-Manager-23cd9e8e5a7a80749880c5c45fec9672",
+  },
 ];
 
 const CaseStudiesList = () => (
