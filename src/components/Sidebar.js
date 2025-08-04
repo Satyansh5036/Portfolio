@@ -100,7 +100,7 @@ const Sidebar = ({ isOpen, closeSidebar, theme, toggleTheme }) => {
           >
             <FaLinkedin />
           </a>
-          <a href="satyansh.g16@gmail.com" aria-label="Send Email">
+          <a href="mailto:satyansh.g16@gmail.com" aria-label="Send Email">
             <FaEnvelopeOpenText />
           </a>
           <a
