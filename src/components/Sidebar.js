@@ -54,7 +54,7 @@ const Sidebar = ({ isOpen, closeSidebar, theme, toggleTheme }) => {
           </a>
 
 
-          <a href="https://drive.google.com/file/d/1zPOlcxcogOPqIWrs1fQP36w3eWsB2U05/view?usp=sharing"  target="_blank" onClick={closeSidebar}>
+          <a href="https://drive.google.com/file/d/1xwlKCsfySETwq2wU1C7aKOxq9di9eb4Y/view?usp=sharing"  target="_blank" onClick={closeSidebar}>
             <TiDocumentText
               style={{ color: "#bf00ff", width: 24, height: 24, marginRight: 14 }}
             />
